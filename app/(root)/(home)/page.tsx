@@ -107,7 +107,7 @@ export default function Home() {
 
               <div className="mt-7 sm:mt-12 mx-auto max-w-3xl relative">
                 <div className="grid gap-4 md:grid-cols-2 grid-cols-1">
-                  <div className="relative z-10 flex flex-col space-x-3 p-3  border rounded-lg shadow-lg  bg-neutral-900 border-neutral-700 shadow-gray-900/20">
+                  <div className="relative z-10 flex flex-col space-x-1 p-3  border rounded-lg shadow-lg  bg-neutral-900 border-neutral-700 shadow-gray-900/20">
                     <TextArea
                       id="source-language"
                       value={sourceText}
@@ -134,7 +134,7 @@ export default function Home() {
                       </span>
                     </div>
                   </div>
-                  <div className="relative z-10 flex flex-col space-x-3 p-3  border rounded-lg shadow-lg  bg-neutral-900 border-neutral-700 shadow-gray-900/20">
+                  <div className="relative z-10 flex flex-col space-x-1 p-3  border rounded-lg shadow-lg  bg-neutral-900 border-neutral-700 shadow-gray-900/20">
                     <TextArea
                       id="target-language"
                       value={targetText}
