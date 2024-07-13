@@ -31,3 +31,76 @@ body {
     text-wrap: balance;
   }
 }
+
+/* ==== clerk class override ===== */
+
+.cl-providerIcon__github {
+  filter: invert(1);
+}
+.cl-userButtonPopoverActionButtonIcon {
+  color: white;
+}
+
+.cl-logoBox {
+  height: 40px;
+}
+.cl-dividerLine {
+  background: #404040;
+  height: 2px;
+}
+
+.cl-socialButtonsIconButton {
+  border: 1px solid #404040;
+}
+
+.cl-internal-wkkub3,
+.cl-internal-1nn89fl {
+  color: white;
+}
+.cl-userButtonPopoverActionButton {
+  color: white;
+}
+
+.cl-userButtonPopoverActionButton:hover {
+  color: #fff;
+}
+
+.cl-internal-zpbffa[data-color="primary"] {
+  color: bisque;
+}
+
+.cl-internal-g6wisg {
+  border-color: #404040;
+}
+
+.cl-internal-2im6sq[data-variant="outline"] {
+  border-width: 1px;
+  box-shadow: rgba(0, 0, 0, 0.07) 0px 0px 0px 1px,
+    rgba(0, 0, 0, 0.08) 0px 2px 3px -1px, rgba(0, 0, 0, 0.02) 0px 1px 0px 0px;
+}
+
+.cl-internal-hrrh4y {
+  color: #b02dd4;
+}
+
+.cl-internal-b6u84v {
+  background-color: #b02dd4;
+  border-color: #b02dd4;
+  --accent: #b02dd4;
+  --accentHover: #b02dd4;
+  --border: #b02dd4;
+  box-shadow: #b02dd4;
+}
+
+.cl-internal-b6u84v[data-variant="solid"][data-color="primary"] {
+  box-shadow: none;
+}
+@layer utilities {
+  .flex-center {
+    @apply flex justify-center items-center;
+  }
+
+  .flex-between {
+    @apply flex justify-between items-center;
+  }
+}
