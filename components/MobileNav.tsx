@@ -11,7 +11,8 @@ import {
 } from "@/components/ui/sheet";
 import { sidebarLinks } from "@/constants";
 import { cn } from "@/lib/utils";
-import { IconMenu2 } from "@tabler/icons-react";
+import { SignOutButton } from "@clerk/nextjs";
+import { IconLogout, IconMenu2 } from "@tabler/icons-react";
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
@@ -54,16 +55,16 @@ const MobileNav = () => {
                         href={item.route}
                         key={item.label}
                         className={cn("flex gap-3 p-2 rounded-sm w-full", {
-                          "bg-blue-1": isActive,
+                          "bg-[#B02DD4]": isActive,
                         })}
                       >
                         <Image
                           src={item.imgUrl}
                           alt={item.label}
-                          width={20}
-                          height={20}
-                          className={cn({
-                            "brightness-[3] invert-0": isActive,
+                          width={15}
+                          height={15}
+                          className={cn("object-contain", {
+                            "brightness-[3] invert-0 object-contain": isActive,
                           })}
                         />
                         <p
@@ -80,6 +81,10 @@ const MobileNav = () => {
                     </SheetClose>
                   );
                 })}
+                <div className="flex flex-row  absolute bottom-10 left-[30px] py-4 gap-3 mx-auto">
+                  <IconLogout />
+                  <SignOutButton />
+                </div>
               </nav>
             </SheetClose>
           </div>
