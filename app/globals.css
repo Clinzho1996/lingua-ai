@@ -92,6 +92,25 @@ body {
   box-shadow: #b02dd4;
 }
 
+.cl-internal-1qj2hkh,
+.cl-internal-14ddyxu,
+.cl-internal-4ammvw,
+.cl-internal-1nh33o8 {
+  color: #b02dd4;
+  --accent: #b02dd4;
+  --accentHover: #b02dd4;
+  --border: #b02dd4;
+  box-shadow: #b02dd4;
+}
+
+.cl-internal-1lnl7p1 {
+  --accentHover: #b02dd4;
+}
+
+.cl-internal-1puok3m {
+  color: #b02dd4;
+  --accentHover: #b02dd4;
+}
 .cl-internal-b6u84v[data-variant="solid"][data-color="primary"] {
   box-shadow: none;
 }
