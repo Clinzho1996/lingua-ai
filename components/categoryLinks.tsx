@@ -6,10 +6,11 @@ import {
   IconWriting,
   IconMoodSmile,
   IconHeart,
+  IconCode,
 } from "@tabler/icons-react";
 
 const categories = [
-  { icon: IconBriefcase, label: "Business" },
+  { icon: IconCode, label: "Technology" },
   { icon: IconSchool, label: "Education" },
   { icon: IconBulb, label: "Creative" },
   { icon: IconHeart, label: "Health" },
