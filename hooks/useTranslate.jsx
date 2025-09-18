@@ -1,48 +1,46 @@
+import { GoogleGenerativeAI } from "@google/generative-ai";
 import { useEffect, useState } from "react";
-import { OpenAI } from "openai";
 
-const openai = new OpenAI({
-  apiKey: process.env.NEXT_PUBLIC_OPENAI_KEY,
-  dangerouslyAllowBrowser: true,
-});
+// Initialize Gemini client
+const genAI = new GoogleGenerativeAI(process.env.NEXT_PUBLIC_GEMINI_API_KEY);
 
 const useTranslate = (sourceText, selectedLanguage) => {
-  const [targetText, setTargetText] = useState("");
+	const [targetText, setTargetText] = useState("");
 
-  useEffect(() => {
-    const handleTranslate = async (sourceText) => {
-      try {
-        const response = await openai.chat.completions.create({
-          model: "gpt-3.5-turbo",
-          messages: [
-            {
-              role: "user",
-              content: `You will be provided with a sentence. This sentence: 
-              ${sourceText}. Your tasks are to:
-              - Detect what language the sentence is in
-              - Translate the sentence into ${selectedLanguage}
-              Do not return anything other than the translated sentence.`,
-            },
-          ],
-        });
+	useEffect(() => {
+		const handleTranslate = async (text) => {
+			try {
+				const model = genAI.getGenerativeModel({
+					model: "gemini-2.0-flash-001",
+				});
 
-        const data = response.choices[0].message.content;
-        setTargetText(data);
-      } catch (error) {
-        console.error("Error translating text:", error);
-      }
-    };
+				const prompt = `You will be provided with a sentence. This sentence: 
+        "${text}". 
+        Your tasks are:
+        - Detect what language the sentence is in.
+        - Translate the sentence into ${selectedLanguage}.
+        Do not return anything other than the translated sentence.`;
 
-    if (sourceText.trim()) {
-      const timeoutId = setTimeout(() => {
-        handleTranslate(sourceText);
-      }, 500); // Adjust the delay as needed
+				const result = await model.generateContent(prompt);
+				const response = await result.response;
+				const translation = response.text();
 
-      return () => clearTimeout(timeoutId);
-    }
-  }, [sourceText, selectedLanguage]);
+				setTargetText(translation);
+			} catch (error) {
+				console.error("Error translating text:", error);
+			}
+		};
 
-  return targetText;
+		if (sourceText.trim()) {
+			const timeoutId = setTimeout(() => {
+				handleTranslate(sourceText);
+			}, 500);
+
+			return () => clearTimeout(timeoutId);
+		}
+	}, [sourceText, selectedLanguage]);
+
+	return targetText;
 };
 
 export default useTranslate;
